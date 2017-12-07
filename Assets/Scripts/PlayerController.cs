@@ -1,14 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
     public float Speed;
+    public Text CountText;
+
     private Rigidbody rb;
+    private int count = 0;
 
     private void Start()
     {
+        SetCountText();
         this.rb = GetComponent<Rigidbody>();
     }
     // called before performing any physics calculations (rigitbody toka)
@@ -28,6 +33,13 @@ public class PlayerController : MonoBehaviour {
         if (other.gameObject.CompareTag("Pick Up"))
         {
             other.gameObject.SetActive(false);
+            this.count++;
+            SetCountText();
         }
+    }
+
+    void SetCountText()
+    {
+        this.CountText.text = "Count: " + this.count.ToString();
     }
 }
