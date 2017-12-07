@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
         this.rb = GetComponent<Rigidbody>();
     }
     // called before performing any physics calculations (rigitbody toka)
+    /*
     private void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis(axisName: "Horizontal");
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour {
 
         this.rb.AddForce(force: movement * this.Speed);
     }
+    */
 
     // called by Unity when our player game object first touches a trigger collider 
     private void OnTriggerEnter(Collider other /* タッチしたコライダー(衝突型加速器) */)
