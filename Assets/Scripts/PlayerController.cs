@@ -7,13 +7,17 @@ public class PlayerController : MonoBehaviour {
 
     public float Speed;
     public Text CountText;
+    public Text WinText;
 
     private Rigidbody rb;
     private int count = 0;
 
+    const int MAX_COLLECTABLE = 12;
+
     private void Start()
     {
         SetCountText();
+        this.WinText.text = "";
         this.rb = GetComponent<Rigidbody>();
     }
     // called before performing any physics calculations (rigitbody toka)
@@ -41,5 +45,10 @@ public class PlayerController : MonoBehaviour {
     void SetCountText()
     {
         this.CountText.text = "Count: " + this.count.ToString();
+
+        if (this.count >= MAX_COLLECTABLE)
+        {
+            this.WinText.text = "You Win!";
+        }
     }
 }
